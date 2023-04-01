@@ -17,4 +17,14 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('users', fn() => view('users'));
+Route::get('users', function () {
+    return view('users');
+});
+
+Route::get('post', function () {
+    return view('post');
+});
+
+Route::get('product', function () {
+    return view('product');
+});
