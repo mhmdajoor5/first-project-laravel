@@ -28,3 +28,12 @@ Route::get('post', function () {
 Route::get('product', function () {
     return view('product');
 });
+
+Route::get('users/{name}', function (String $name) {
+    if ($name == 'admin') {
+        return 'Hello Admin';
+    }else{
+        return 'Hello User';
+    }
+        return $name;
+    });
