@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,25 +22,14 @@ Route::get('users', function () {
     return view('users');
 });
 
-Route::get('/post', function () {
-    $post = "This is a post";
-    return view('post', compact('post'));
-});
+Route::get('/post', [PostController::class , 'showPost']);
 
-Route::get("/post/create", function () {
-    $createPost = "create post";
-    return view('post_create', compact('createPost'));
-});
+Route::get('/post/create',[PostController::class , 'createPost']);
 
-Route::get('post/edit/{id}', function ($id) {
-    $editPost = "edit post";
-    return view('post_edit', compact('editPost'));
-});
+Route::get('/post/edit/{id}',[PostController::class,'editPost']);
 
-Route::get('post/delete/{id}', function ($id) {
-    $deletePost = "delete post";
-    return view('post_delete', compact('deletePost'));
-});
+Route::get('/post/delete/{id}',[PostController::class,'deletePost']);
+
 
 Route::get('product', function () {
     return view('product');
