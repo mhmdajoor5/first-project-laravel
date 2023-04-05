@@ -22,13 +22,14 @@ Route::get('users', function () {
     return view('users');
 });
 
-Route::get('/post', [PostController::class , 'showPost']);
-
-Route::get('/post/create',[PostController::class , 'createPost']);
-
-Route::get('/post/edit/{id}',[PostController::class,'editPost']);
-
-Route::get('/post/delete/{id}',[PostController::class,'deletePost']);
+Route::controller(PostController::class) ->group(
+    function () {
+        Route::get('/post','showPost');
+        Route::get('/post/create','createPost');
+        Route::get('/post/edit/{id}','editPost');
+        Route::get('/post/delete/{id}','deletePost');
+    }
+);
 
 
 Route::get('product', function () {
