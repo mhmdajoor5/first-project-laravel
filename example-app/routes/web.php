@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -30,6 +31,8 @@ Route::controller(PostController::class) ->group(
         Route::get('/post/delete/{id}','deletePost');
     }
 );
+
+Route::resource('user', UserController::class);
 
 
 Route::get('product', function () {
