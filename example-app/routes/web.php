@@ -32,7 +32,10 @@ Route::controller(PostController::class) ->group(
     }
 );
 
-Route::resource('user', UserController::class);
+/// TODO:ONLY METHOD => Come to mention them
+/// TODO:EXCEPT METHOD => Bring me what I remember
+
+Route::resource('user', UserController::class)->except(['create', 'edit' , 'show']);
 
 
 Route::get('product', function () {
