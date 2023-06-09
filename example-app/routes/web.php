@@ -53,6 +53,7 @@ Route::get('users/{name}', function (String $name) {
     }
         return $name;
     });
-
+Route::get('store',[StoreController:: class,'index']);
 Route::get('store/create',[StoreController:: class,'create']);
 Route::post('store/insert',[StoreController:: class,'insert'])->name('store.insert');
+Route::get('store/edit/{id}',[StoreController:: class,'edit'])->name('store.edit');

@@ -7,6 +7,13 @@ use Illuminate\Support\Facades\DB;
 
 class StoreController extends Controller
 {
+
+    public function index()
+    {
+        $stores = DB::table('store')->get();
+        return view('store.index', compact('stores'));
+    }
+
     public function create()
     {
        return view('store.create');
@@ -14,14 +21,16 @@ class StoreController extends Controller
 
     public function insert(Request $request)
     {
-        return $request;
-//        return DB::table(
-//            'stores'
-//        )->insert(
-//            [
-//                'name' => request()->name,
-//                'address' => request()->address,
-//            ]
-//        );
+        DB::table('store')->insert([
+            'title' => $request->title,
+            'body' => $request->body,
+        ]);
+        return response('تمت إضافة البيانات بنجاح.');
+    }
+
+    public function edit($id)
+    {
+        $store = DB::table('store')->where('id', $id)->first();
+        return view('store.edit', compact('store'));
     }
 }
