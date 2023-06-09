@@ -53,7 +53,8 @@ Route::get('users/{name}', function (String $name) {
     }
         return $name;
     });
-Route::get('store',[StoreController:: class,'index']);
-Route::get('store/create',[StoreController:: class,'create']);
+Route::get('store',[StoreController:: class,'index'])->name('store.index');
+Route::get('store/create',[StoreController:: class,'create'])->name('store.create');
 Route::post('store/insert',[StoreController:: class,'insert'])->name('store.insert');
 Route::get('store/edit/{id}',[StoreController:: class,'edit'])->name('store.edit');
+Route::PUT('store/update/{id}',[StoreController:: class,'update'])->name('store.update');

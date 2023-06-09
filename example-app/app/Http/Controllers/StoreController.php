@@ -33,4 +33,13 @@ class StoreController extends Controller
         $store = DB::table('store')->where('id', $id)->first();
         return view('store.edit', compact('store'));
     }
+
+    public function update(Request $request, $id)
+    {
+        DB::table('store')->where('id', $id)->update([
+            'title' => $request->title,
+            'body' => $request->body,
+        ]);
+        return redirect()->route('store.index');
+    }
 }
