@@ -53,8 +53,12 @@ Route::get('users/{name}', function (String $name) {
     }
         return $name;
     });
-Route::get('store',[StoreController:: class,'index'])->name('store.index');
-Route::get('store/create',[StoreController:: class,'create'])->name('store.create');
-Route::post('store/insert',[StoreController:: class,'insert'])->name('store.insert');
-Route::get('store/edit/{id}',[StoreController:: class,'edit'])->name('store.edit');
-Route::PUT('store/update/{id}',[StoreController:: class,'update'])->name('store.update');
+
+Route::controller(controller: StoreController::class)->group(function () {
+    Route::get('store','index')->name('store.index');
+    Route::get('store/create','create')->name('store.create');
+    Route::post('store/insert','insert')->name('store.insert');
+    Route::get('store/edit/{id}','edit')->name('store.edit');
+    Route::PUT('store/update/{id}','update')->name('store.update');
+});
+
