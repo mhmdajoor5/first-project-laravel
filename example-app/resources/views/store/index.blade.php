@@ -84,6 +84,18 @@
     .delete-btn:hover {
         background-color: #d32f2f;
     }
+
+    .sidebar {
+        float: right;
+        padding: 15px;
+        background-color: #f2f2f2;
+        margin-top: 6px;
+    }
+
+    .edit-btn {
+        display: inline-block;
+    }
+
 </style>
 
 <table class="table">
@@ -96,14 +108,20 @@
     </tr>
     </thead>
     <tbody>
+    <div class="sidebar">
+        <a href="{{route('stores.delete.all')}}" class="delete-btn">Delete All</a>
+        <a href="{{route('store.create')}}" class="edit-btn">Create</a>
+    </div>
+
     @foreach($stores as $store)
+
         <tr>
             <th scope="row">{{$store->id}}</th>
             <td>{{$store->title}}</td>
             <td>{{$store->body}}</td>
             <td>
                 <a href="{{route('store.edit',$store->id)}}" class="edit-btn">Edit</a>
-                <a href="" class="delete-btn">Delete</a>
+                <a href="{{route('store.delete',$store->id)}}" class="delete-btn">Delete</a>
             </td>
         </tr>
     @endforeach

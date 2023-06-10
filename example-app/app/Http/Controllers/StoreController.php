@@ -25,7 +25,7 @@ class StoreController extends Controller
             'title' => $request->title,
             'body' => $request->body,
         ]);
-        return response('تمت إضافة البيانات بنجاح.');
+        return redirect()->route('store.index');
     }
 
     public function edit($id)
@@ -40,6 +40,16 @@ class StoreController extends Controller
             'title' => $request->title,
             'body' => $request->body,
         ]);
+        return redirect()->route('store.index');
+    }
+
+    public function delete($id){
+        DB::table('store')->where('id',$id)->delete();
+        return redirect()->route('store.index');
+    }
+
+    public function deleteAll(){
+        DB::table('store')->delete();
         return redirect()->route('store.index');
     }
 }
