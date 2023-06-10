@@ -81,6 +81,17 @@
         transition: background-color 0.3s ease;
     }
 
+    .delete-btu {
+        display: inline-block;
+        padding: 8px 16px;
+        background-color: #555555;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
     .delete-btn:hover {
         background-color: #d32f2f;
     }
@@ -110,6 +121,7 @@
     <tbody>
     <div class="sidebar">
         <a href="{{route('stores.delete.all')}}" class="delete-btn">Delete All</a>
+        <a href="{{route('stores.delete.all.truncate')}}" class="delete-btu">Delete Truncate</a>
         <a href="{{route('store.create')}}" class="edit-btn">Create</a>
     </div>
 

@@ -36,11 +36,11 @@ class StoreController extends Controller
 
     public function update(Request $request, $id)
     {
-        DB::table('store')->where('id', $id)->update([
+        $update = DB::table('store')->where('id', $id)->update([
             'title' => $request->title,
             'body' => $request->body,
         ]);
-        return redirect()->route('store.index');
+        return redirect()->route('store.index' , compact('update'));
     }
 
     public function delete($id){
@@ -49,7 +49,12 @@ class StoreController extends Controller
     }
 
     public function deleteAll(){
-        DB::table('store')->delete();
-        return redirect()->route('store.index');
+       $deleteUser =  DB::table('store')->delete();
+        return redirect()->route('store.index', compact('deleteUser'));
+    }
+
+    public function deleteTruncate(){
+        $deleteTruncate=  DB::table('store')->truncate();
+        return redirect()->route('store.index' , compact('deleteTruncate'));
     }
 }

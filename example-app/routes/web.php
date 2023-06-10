@@ -62,5 +62,6 @@ Route::controller(StoreController::class)->group(function () {
     Route::PUT('store/update/{id}','update')->name('store.update');
     Route::get('store/delete/{id}','delete')->name('store.delete');
     Route::get('stores/delete/all','deleteAll')->name('stores.delete.all');
+    Route::get('stores/delete/all/truncate','deleteTruncate')->name('stores.delete.all.truncate');
 });
 
